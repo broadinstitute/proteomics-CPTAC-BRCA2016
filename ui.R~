@@ -1,0 +1,22 @@
+library(shiny)
+
+# Define UI for application that draws a histogram
+shinyUI(fluidPage(
+
+  # Application title
+  titlePanel("Supplementary information to Mertins et al. 2016"),
+
+  # Sidebar with a slider input for the number of bins
+  sidebarLayout(
+
+    sidebarPanel(
+        textInput('genes', label='Paste a list of gene names', value=GENESSTART),
+        ##actionButton('go', 'GO')
+        submitButton('GO')
+    ),
+    # Show a plot of the generated distribution
+    mainPanel(
+      plotOutput("plot")
+    )
+  )
+))
