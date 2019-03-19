@@ -1061,7 +1061,9 @@ pheatmap = function(mat, color = colorRampPalette(rev(brewer.pal(n = 7, name = "
         ## - add CNA legend
         ##
         tr =grid.ls(viewport=T, print=F)
+        #save(tr, file='debug.RData')
         ## find legend
+        #seekViewport(tr$name[grep('legend', tr$name)[2]])
         seekViewport(tr$name[grep('legend', tr$name)[2]])
         ##color.leg2 <- colorRampPalette( c('blue', 'grey', 'red'))(5)
         color.leg2 <- color[c(1, 4, 6, 8, 12)]

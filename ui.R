@@ -14,7 +14,7 @@ library(shiny)
 shinyUI(fluidPage(
 
   # Application title
-  titlePanel(TITLESTRING),
+  titlePanel(HTML(TITLESTRING), windowTitle = "Mertins et al. 2016. Nature"),
 
   ##################################
   ## side bar with:
@@ -24,6 +24,7 @@ shinyUI(fluidPage(
   sidebarLayout(
 
       sidebarPanel(
+          HTML('<br>'),
           ## text input
           textInput('genes', label=paste('Paste a list of gene names (max. ', GENEMAX,')', sep=''), value=GENESSTART),
           ## submit button
@@ -43,12 +44,14 @@ shinyUI(fluidPage(
           HTML('<br><br>'),
 
           HTML('<p><b>Getting started</b></p>'),
-          helpText('Simply enter or paste your gene names of interest (official gene symbols, e.g. ERBB2) into the text field. The text field accepts lists of up to 20 gene symbols in either comma-, semicolon-, or space-separated form. The dataset provides quantitative data on 16,826 genes, however, not every data type will be available for every gene. If enabled Z-scoring will be applied on expression data and not on (discrete) CNA data. For more details see publication XX.')
-    ),
+          helpText('Simply enter or paste your gene names of interest (official gene symbols, e.g. ERBB2) into the text field. The text field accepts lists of up to 20 gene symbols in either comma-, semicolon-, or space-separated form. The dataset provides quantitative data on 16,826 genes, however, not every data type will be available for every gene. If enabled Z-scoring will be applied on expression data and not on (discrete) CNA data.'),
+          HTML('<p>For more details please see our publication <a href="https://www.nature.com/articles/nature18003" target="_blank_">Mertins et al. Nature. 2016</a></p>')   
+           ),
     ################################
     ## main panel: heatmap
     mainPanel(
       plotOutput("plot")
     )
+   # HTML('<p align="right"><a href="https://www.broadinstitute.org/proteomics" target="_blank_"><b>Proteomics Platform@Broad</b></a></p>')
   )
 ))

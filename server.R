@@ -26,7 +26,7 @@ shinyServer( function(input, output, session) {
     ## generate the heatmap
     output$plot <- renderPlot({
 
-        cat(as.logical(input$zscore),'\n')
+        #cat(as.logical(input$zscore),'\n')
 
         genes.vec <- extractGenes( input$genes )
         if(length(genes.vec)==0) return()

@@ -18,7 +18,12 @@ load('data_bc2016.RData')
 ## global parameters
 GENESSTART <<- 'TP53 ERBB2 PIK3CA GATA3 ESR1 PGR'
 GENEMAX <<- 20
-TITLESTRING <<- 'Supplementary information Mertins et al. 2016'
+#TITLESTRING <<- 'Supplementary information: <a href="https://www.nature.com/articles/nature18003" target-"_blank_">Mertins et al. 2016</a>'
+#TITLESTRING <<- 'Supplementary information to <i>Proteogenomics connects somatic mutations to signalling in breast cancer.</i><a href="https://www.nature.com/articles/nature18003" target-"_blank_"> (Mertins <i>et al</i>. 2016)</a>'
+#TITLESTRING <<- '<a href="https://www.nature.com/articles/nature18003" target="_blank_">Proteogenomics connects somatic mutations to signalling in breast cancer</a>. Mertins <i>et al.</i> (2016). Nature.<br><br>Supplementary information'
+TITLESTRING <<- '<font size="5" face="times"><i><b>"Proteogenomics connects somatic mutations to signalling in breast cancer"</b></i> (<a href="https://www.nature.com/articles/nature18003" target="_blank_">Mertins <i>et al.</i> Nature. 2016</a>)</font><br>'
+
+
 FILENAMESTRING <<- 'CPTAC2_BC2016'
 
 ##library(pheatmap)
