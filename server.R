@@ -43,7 +43,7 @@ shinyServer( function(input, output, session) {
     output$downloadHM <- downloadHandler(
 
         ##filename = paste( FILENAMESTRING, ifelse(input$zscore, 'Zscore', ''),'.pdf', sep=''),
-        filename = paste( FILENAMESTRING,'.pdf', sep=''),
+        filename = paste( FILENAMESTRING,  '-',  gsub(' |\\:','-', Sys.time()), '.pdf', sep=''),
         content = function(file){
             genes.vec <- extractGenes( input$genes )
             if(length(genes.vec)==0) return()
@@ -53,7 +53,7 @@ shinyServer( function(input, output, session) {
     #############################
     ## download Excel
     output$downloadTab <- downloadHandler(
-        filename = function(){paste(FILENAMESTRING, '.xlsx', sep='')},
+        filename = function(){paste( FILENAMESTRING, '-',  gsub(' |\\:','-', Sys.time()) ,'.xlsx', sep='')},
         content = function(file){
             tab=as.data.frame(global$expr.select)
             WriteXLS('tab', ExcelFileName=file, SheetNames=FILENAMESTRING, FreezeCol=6, FreezeRow=5, row.names=T)
