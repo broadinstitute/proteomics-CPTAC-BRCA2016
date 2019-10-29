@@ -47,7 +47,7 @@ shinyServer( function(input, output, session) {
         content = function(file){
             genes.vec <- extractGenes( input$genes )
             if(length(genes.vec)==0) return()
-            hm=makeHM(genes.vec, expr=tab.expr.all, column.anno=column.anno, row.anno=row.anno, filename=file, main=TITLESTRING, height=ifelse(length(genes.vec) < 4, 6.5, NA), as.logical(input$zscore))
+            hm=makeHM(genes.vec, expr=tab.expr.all, column.anno=column.anno, row.anno=row.anno, filename=file, main=TITLESTRING.HEATMAP, height=ifelse(length(genes.vec) < 4, 6.5, NA), as.logical(input$zscore))
             }
     )
     #############################

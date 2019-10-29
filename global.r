@@ -8,7 +8,7 @@
 ## and variables used by 'ui.R' and 'server.R'
 #################################################################
 
-source('pheatmap.r')
+#source('pheatmap.r')
 library(scales)
 library(gtable)
 
@@ -18,15 +18,12 @@ load('data_bc2016.RData')
 ## global parameters
 GENESSTART <<- 'TP53 ERBB2 PIK3CA GATA3 ESR1 PGR'
 GENEMAX <<- 20
-#TITLESTRING <<- 'Supplementary information: <a href="https://www.nature.com/articles/nature18003" target-"_blank_">Mertins et al. 2016</a>'
-#TITLESTRING <<- 'Supplementary information to <i>Proteogenomics connects somatic mutations to signalling in breast cancer.</i><a href="https://www.nature.com/articles/nature18003" target-"_blank_"> (Mertins <i>et al</i>. 2016)</a>'
-#TITLESTRING <<- '<a href="https://www.nature.com/articles/nature18003" target="_blank_">Proteogenomics connects somatic mutations to signalling in breast cancer</a>. Mertins <i>et al.</i> (2016). Nature.<br><br>Supplementary information'
 TITLESTRING <<- '<font size="5" face="times"><i><b>"Proteogenomics connects somatic mutations to signalling in breast cancer"</b></i> (<a href="https://www.nature.com/articles/nature18003" target="_blank_">Mertins <i>et al.</i> Nature. 2016</a>)</font><br>'
+TITLESTRING.HEATMAP <<- 'Suppl. data: "Proteogenomics connects somatic mutations to signalling in breast cancer", Mertins et al. Nature. 2016'
 
+FILENAMESTRING <<- 'CPTAC2_BRCA2016'
 
-FILENAMESTRING <<- 'CPTAC2_BC2016'
-
-##library(pheatmap)
+library(pheatmap)
 library(RColorBrewer)
 library(gplots)
 library(WriteXLS)
@@ -186,7 +183,13 @@ makeHM <- function(gene, filename=NA, expr=tab.expr.all, column.anno=column.anno
     ## heatmap
     cellwidth=10
     cellheight=10
-    pheatmap(expr.select.zscore, cluster_row=F, cluster_col=F,  annotation_col=column.anno.fig, annotation_colors=column.anno.col,  scale = "none", labels_row=featureIDs.anno.select, border_color=color.border, gaps_col=gaps.column, gaps_row=gaps.row, color=color.hm, filename=filename, cellwidth=cellwidth, cellheight=cellheight, labels_col=sampleIDs, breaks=color.breaks, legend_breaks=legend_breaks, legend_labels=legend_labels, na_col='white',...)
+    pheatmap(expr.select.zscore, cluster_row=F, cluster_col=F,  
+             annotation_col=column.anno.fig, 
+             annotation_colors=column.anno.col,  
+             scale = "none", labels_row=featureIDs.anno.select, 
+             border_color=color.border, gaps_col=gaps.column, gaps_row=gaps.row, 
+             color=color.hm, filename=filename, cellwidth=cellwidth, cellheight=cellheight, 
+             labels_col=sampleIDs, breaks=color.breaks, legend_breaks=legend_breaks, legend_labels=legend_labels, na_col='white',...)
 
 
     #########################################################################################
