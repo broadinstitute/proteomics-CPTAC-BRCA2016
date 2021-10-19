@@ -52,6 +52,5 @@ shinyUI(fluidPage(
     mainPanel(
       plotOutput("plot")
     )
-   # HTML('<p align="right"><a href="https://www.broadinstitute.org/proteomics" target="_blank_"><b>Proteomics Platform@Broad</b></a></p>')
   )
 ))

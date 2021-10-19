@@ -26,8 +26,6 @@ shinyServer( function(input, output, session) {
     ## generate the heatmap
     output$plot <- renderPlot({
 
-        #cat(as.logical(input$zscore),'\n')
-
         genes.vec <- extractGenes( input$genes )
         if(length(genes.vec)==0) return()
 
@@ -53,7 +51,7 @@ shinyServer( function(input, output, session) {
     #############################
     ## download Excel
     output$downloadTab <- downloadHandler(
-        filename = function(){paste( FILENAMESTRING, '-',  gsub(' |\\:','-', Sys.time()) ,'.xlsx', sep='')},
+        filename = function(){paste( FILENAMESTRING, '-',  gsub(' |\\:','-', Sys.time()) ,'.xlsx', sep='') },
         content = function(file){
             tab=as.data.frame(global$expr.select)
             WriteXLS('tab', ExcelFileName=file, SheetNames=FILENAMESTRING, FreezeCol=6, FreezeRow=5, row.names=T)
